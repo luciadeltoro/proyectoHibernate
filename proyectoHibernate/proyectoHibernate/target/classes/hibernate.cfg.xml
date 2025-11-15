@@ -1,0 +1,33 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-configuration PUBLIC
+        "-//Hibernate/Hibernate Configuration DTD//EN"
+        "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+
+<hibernate-configuration>
+    <session-factory>
+
+        <!-- Configuración de conexión -->
+        <property name="hibernate.connection.driver_class">com.mysql.cj.jdbc.Driver</property>
+        <property name="hibernate.connection.url">jdbc:mysql://localhost:3307/refugio?serverTimezone=UTC</property>
+        <property name="hibernate.connection.username">root</property>
+        <property name="hibernate.dialect">org.hibernate.dialect.MySQLDialect</property>
+
+        <!-- Para que no me muestre el SQL por consola lo pongo en false -->
+        <property name="show_sql">false</property>
+        <property name="format_sql">false</property>
+
+        <!-- Actualización de la base de datos -->
+        <property name="hbm2ddl.auto">update</property>
+
+        <property name="hibernate.connection.pool_size">5</property>
+
+        <property name="hibernate.cache.use_second_level_cache">false</property>
+        <property name="hibernate.cache.use_query_cache">false</property>
+
+        <!-- Clases mapeadas -->
+        <mapping class="org.example.entities.Animal"/>
+        <mapping class="org.example.entities.Persona"/>
+        <mapping class="org.example.entities.Clasificacion"/>
+
+    </session-factory>
+</hibernate-configuration>
